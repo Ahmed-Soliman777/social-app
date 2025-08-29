@@ -5,6 +5,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import { _maxLength } from './../../../node_modules/zod/v4/core/api';
+import regImg from "../../../public/images/registerImg.png"
 import toast from "react-hot-toast";
 
 
@@ -53,11 +54,14 @@ export default function Register() {
   }
 
   return (
-    <div>
-      <h1 className="">Register</h1>
+    <div className="flex justify-between items-center">
 
+      <div className="w-1/2 lg:block md:hidden">
 
-      <form onSubmit={handleSubmit(getData)} className="max-w-sm mx-auto">
+        <img src={regImg} alt="social media reg img" className="w-full" />
+      </div>
+
+      <form onSubmit={handleSubmit(getData)} className="lg:w-1/2 w-full p-5">
         <div className="mb-5">
           <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
           <input {...register("name", {
