@@ -44,10 +44,6 @@ export default function App() {
       </QueryClientProvider>
 
       {/* <Online>Online</Online> */}
-      <Online>lsajfia</Online>
-      <Offline>
-        You are offline.
-      </Offline>
     </>
   )
 }
