@@ -33,22 +33,23 @@ export default function Navbar() {
               user ?
                 <>
 
-                  <li>
-                    <NavLink to='profile' className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">profile</NavLink>
+                  <li className='flex items-center'>
+                    <NavLink to='profile' className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Profile</NavLink>
                   </li>
 
-                  <li>
-                    <NavLink to='editProfile' className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">editProfile</NavLink>
+                  <li className='flex items-center'>
+                    <NavLink to='editProfile' className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Edit Profile</NavLink>
                   </li>
 
                   <li>
 
                     <div class="flex items-center gap-4">
                       <img class="w-10 h-10 rounded-full" src={user.photo} alt="" />
-                      <div class="font-medium dark:text-white">
+                      <div class="font-medium dark:text-white ">
                         <span>{user.name}</span>
-                        <span onClick={Logout}>Logout</span>
-                        {/* <i className="fa-solid fa-right-from-bracket"></i> */}
+                        <span className='text-red-700'>
+                          <i className="fa-solid fa-right-from-bracket ml-5 cursor-pointer"></i> Logout
+                        </span>
                       </div>
                     </div>
 
