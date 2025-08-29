@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { tokenContext } from '../../Component/context/tokenContext';
 import toast from "react-hot-toast";
 import { UserContext } from "../../Component/context/UserContext";
+import logo from '../../../public/vite.svg'
 
 const schema = Zod.object({
   email: Zod.string().nonempty("Email is required"),
@@ -31,7 +32,7 @@ export default function Login() {
       // console.error("Invalid User!");
       toast.error(err.response.data.error)
     })
-    console.log(res);
+    // console.log(res);
     if (res?.data?.message == "success") {
       toast.success("Login Success")
       localStorage.setItem("token", res.data.token)
@@ -43,9 +44,11 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1 className="">Login</h1>
-
+    <div className="mt-33">
+      
+      <div className="flex justify-center">
+        <img src={logo} alt="social media logo" className="w-[5%]" />
+      </div>
 
       <form onSubmit={handleSubmit(getData)} className="max-w-sm mx-auto">
         <div className="mb-5">
