@@ -5,6 +5,9 @@ import CreatePost from '../../Component/CreatePost/CreatePost'
 import PostOptions from './../../Component/PostOptions/PostOptions';
 import { UserContext } from '../../Component/context/UserContext';
 import { useQuery } from '@tanstack/react-query';
+import ImageIcon from '../../assets/img-icon.jpg'
+import ProfileIcon from '../../assets/profile-icon.jpg'
+
 
 
 export default function Home() {
@@ -29,7 +32,7 @@ export default function Home() {
       }
     })
 
-    setLoading(false)
+    // setLoading(false)
 
     if (data.message == "success") {
       setPosts(data.posts)
@@ -58,7 +61,7 @@ export default function Home() {
           <span className="sr-only">Loading...</span>
         </div>
         :
-        <div className="w-3/4 mx-auto">
+        <div className="sm:w-full lg:w-[55%] mx-auto">
           <CreatePost refetch={refetch} />
           {postsList.map((post) => {
             let { _id, body, image, user: { name, photo }, createdAt, comments } = post
@@ -84,11 +87,11 @@ export default function Home() {
                 </div>
 
                 <p className='text-zinc-600 my-5'>{body}</p>
-                <img className='w-full rounded' src={image} alt={body} />
+                <img className='w-full rounded' src={image ? image : ImageIcon} alt={body} />
               </div>
               <div className="cardFooter mt-5">
                 <div className="flex justify-between">
-                  <h2>{comments.length}</h2>
+                  <h2><i class="fa-solid fa-message"></i> {comments.length}</h2>
                   <Link to={'/postsDetails/' + _id} className='text-blue-600'>See Posts Details</Link>
                 </div>
 
@@ -96,7 +99,7 @@ export default function Home() {
                   <div className="cardItem-avatar">
 
                     <div className="flex items-center gap-4">
-                      <img className="w-10 h-10 rounded-full" src={comments[comments.length - 1].commentCreator.photo} alt="" />
+                      <img className="w-10 h-10 rounded-full" src={/*comments[comments.length - 1].commentCreator?.photo*/  ProfileIcon} alt="" />
                       <div className="font-medium dark:text-white">
                         <div>{comments[comments.length - 1].commentCreator.name}</div>
                         <div className="text-sm text-gray-500 dark:text-gray-400">{new Date(createdAt).toUTCString()}</div>

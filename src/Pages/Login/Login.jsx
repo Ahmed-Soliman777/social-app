@@ -47,7 +47,7 @@ export default function Login() {
     <div className="mt-33">
       
       <div className="flex justify-center">
-        <img src={logo} alt="social media logo" className="w-[5%]" />
+        <img src={logo} alt="social media logo" className="w-[70px]" />
       </div>
 
       <form onSubmit={handleSubmit(getData)} className="max-w-sm mx-auto">

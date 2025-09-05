@@ -47,8 +47,8 @@ export default function Navbar() {
                       <img class="w-10 h-10 rounded-full" src={user.photo} alt="" />
                       <div class="font-medium dark:text-white ">
                         <span>{user.name.split(" ")[0]}</span>
-                        <span className='text-red-700'>
-                          <i className="fa-solid fa-right-from-bracket ml-5 cursor-pointer"></i> Logout
+                        <span className='text-red-700 cursor-pointer' onClick={Logout}>
+                          <i className="fa-solid fa-right-from-bracket ml-5"></i> Logout
                         </span>
                       </div>
                     </div>

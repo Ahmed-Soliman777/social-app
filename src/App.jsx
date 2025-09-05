@@ -13,7 +13,6 @@ import EditProfile from './Pages/EditProfile/EditProfile';
 import { ProtectedRouting } from './ProtectedRouting/ProtectedRouting';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { Offline, Online } from 'react-detect-offline';
 
 export default function App() {
   let Routes = createBrowserRouter([
@@ -37,13 +36,10 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <UserContextProvider>
           <RouterProvider router={Routes} />
-
           <Toaster />
         </UserContextProvider>
         <ReactQueryDevtools />
       </QueryClientProvider>
-
-      {/* <Online>Online</Online> */}
     </>
   )
 }

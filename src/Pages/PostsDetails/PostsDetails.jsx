@@ -2,6 +2,9 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import ImageIcon from '../../assets/img-icon.jpg'
+import ProfileIcon from '../../assets/profile-icon.jpg'
+
 
 export default function PostsDetails() {
     let { id } = useParams()
@@ -33,7 +36,7 @@ export default function PostsDetails() {
     }
 
     return (
-        <div>
+        <div className='sm:w-[100%] lg:w-[67%] mx-auto'>
             {post && <div className='cardItem rounded-3xl bg-white my-5 p-5'>
                 <div className="cardBody">
                     <div className="cardItem-avatar">
@@ -49,11 +52,11 @@ export default function PostsDetails() {
                     </div>
 
                     <p className='text-zinc-600 my-5'>{post.body}</p>
-                    <img className='w-full rounded' src={post.image} alt={post.body} />
+                    <img className='w-full rounded' src={(post.image) ? post.image : ImageIcon} alt={post.body} />
                 </div>
                 <div className="cardFooter mt-5">
                     <div className="flex justify-between">
-                        <h2>{post.comments.length}</h2>
+                        <h2><i class="fa-solid fa-message"></i> {post.comments.length}</h2>
                         <Link to={'/postsDetails/' + post._id} className='text-blue-600'>See Posts Details</Link>
                     </div>
 
@@ -63,7 +66,7 @@ export default function PostsDetails() {
                                 <div className="cardItem-avatar">
 
                                     <div className="flex items-center gap-4">
-                                        <img className="w-10 h-10 rounded-full" src={comment.commentCreator.photo} alt="" />
+                                        <img className="w-10 h-10 rounded-full" src={/*comment.commentCreator.photo ||*/ ProfileIcon} alt="" />
                                         <div className="font-medium dark:text-white">
                                             <div>{comment.commentCreator.name}</div>
                                             <div className="text-sm text-gray-500 dark:text-gray-400">{new Date(post.createdAt).toUTCString()}</div>
